@@ -1,3 +1,0 @@
-Func: example
-Arguments: a, b
-Kwargs: c:abc
