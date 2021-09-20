@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block page-header %}Post detail{% endblock %}
+{% block content %}
+    <aside style="position: absolute; right: 30px; padding: 10px;"></aside>
+    <div class="post-entry post-detail">
+        <h1 class="page-header">{{ object.title }}</h1>
+        <p>{{ object.info }}</p>
+        <h5>Цена: {{ object.price }} руб</h5>
+        <h5>Автор: {{ object.author.username }}</h5>
+        <h5>Телефон: {{ object.author.profile.phone_number }}</h5>
+        <h6>{{ object.publication_date }}</h6>
+
+    </div>
+    {% if user.is_authenticated and user.pk == object.author.id %}
+        <p class="detail-btn"><a href='{% url "prod_edit" post.pk %}' class="btn btn-outline-primary"><i class="fas fa-edit"></i> Edit Product</a></p>
+        <p><a href="{% url 'prod_delete' post.pk %}" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i> Delete Product</a></p>
+    {% endif %}
+{% endblock %}

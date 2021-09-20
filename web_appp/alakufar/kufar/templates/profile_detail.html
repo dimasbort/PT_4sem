@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block page-header %}{{ user.username }}'s profile{% endblock %}
+{% block content %}
+    <aside style="position: absolute; right: 30px; padding: 10px;"></aside>
+        <div class="post-entry post-detail">
+            <h5>Телефон: {{ object.phone_number }}</h5>
+            <h5>E-mail: {{ object.email }}</h5>
+            <h5>О себе: {{ object.inform }}</h5>
+        </div>
+{% endblock %}
